@@ -1,0 +1,18 @@
+// #2A52BE cerulean darkest blue.    Main header color
+// #0094E9 ocean blue 			background color
+// #00CBE4 light sea blue			text color
+// #6BFBCE light sea green		ACCENT COLOR : links,
+//  animations etc
+
+$main-header-color: #2A52BE;
+$background-color:#6BFBCE;
+$text-color:#00084B;
+$accent-color:#00CBE4;
+
+body{
+	background-color: $background-color;
+}
+
+h2 {
+	color: $text-color;
+}
