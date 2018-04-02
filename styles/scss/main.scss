@@ -13,6 +13,12 @@ body{
 	background-color: $background-color;
 }
 
+h1{
+	text-align: center;
+	color: $main-header-color;
+}
+
 h2 {
 	color: $text-color;
+	text-align: center;
 }
