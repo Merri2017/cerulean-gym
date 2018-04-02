@@ -84,10 +84,7 @@ $(document).ready(function() {
                 });
             }
         }
-
     }
-
-
 
     // creates new pokedex initialized with trainer name Sasha and adds preset Pokemon 
     function main(){
@@ -99,7 +96,6 @@ $(document).ready(function() {
             trainerB.add(trainerTwo[i]);
         }
     }
-
     main();
 });
 
