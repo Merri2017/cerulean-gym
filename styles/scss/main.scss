@@ -22,3 +22,11 @@ h2 {
 	color: $text-color;
 	text-align: center;
 }
+
+.container{
+	// center div
+	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	flex-direction: column-reverse;
+}
