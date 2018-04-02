@@ -2,9 +2,13 @@ const pokeApi = "https://pokeapi.co/api/v2/pokemon/";
 //const pokeApi = "https://pokeapi.salestock.net/api/v2/pokemon/";
 const trainerOne = ["rockruff", "lillipup", "stufful"];
 const trainerTwo = ["clefairy", "ninetales", "togepi"];
-
+let trainers = [];
 let trainerA;
 let trainerB;
+
+let trainerC;
+
+
 
 $(document).ready(function() { 
 
@@ -86,8 +90,29 @@ $(document).ready(function() {
         }
     }
 
+    trainerC = new Trainer("Test");
+    testPokemon = new Pokemon("Tester",["type"], 1, 2, "www.test.com", {"statOne": "testStat"}, ["abilityOne", "abilityTwo"]);
+    trainerC.pokeDirectory["Test"] = testPokemon;
+    
+    function renderPokemon(trainer) {
+        let pokes = Object.values(trainer.pokeDirectory);
+        console.log(pokes);
+
+        for(let poke in pokes){
+            //console.log(trainer.pokeDirectory[poke].name);
+            //console.log(poke.types);
+            console.log(Object.keys(trainer.pokeDirectory));
+        
+            //console.log(poke.weight);
+            //console.log(poke.abilities);
+            //console.log(imgUrl);
+            //console.log(stats);
+        }
+    }
+
     // creates new pokedex initialized with trainer name Sasha and adds preset Pokemon 
-    function main(){
+    function start(){
+        console.log("I'm in main!");
         trainerA = new Trainer("Sasha");
         trainerB = new Trainer("Meribel");
 
@@ -95,7 +120,13 @@ $(document).ready(function() {
             trainerA.add(trainerOne[i]);
             trainerB.add(trainerTwo[i]);
         }
+        trainers.push(trainerA);
+        trainers.push(trainerB);
+        return trainers;
     }
-    main();
+    $.when(start()).then(function(trainers){
+        renderPokemon(trainerC);
+    });
+
 });
 
