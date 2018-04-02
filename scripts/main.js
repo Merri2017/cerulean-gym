@@ -114,7 +114,7 @@ $(document).ready(function() {
     function start(){
         console.log("I'm in main!");
         trainerA = new Trainer("Sasha");
-        trainerB = new Trainer("Meribel");
+        trainerB = new Trainer("Celine");
 
         for (let i = 0; i < 3; i++){
             trainerA.add(trainerOne[i]);
@@ -124,9 +124,18 @@ $(document).ready(function() {
         trainers.push(trainerB);
         return trainers;
     }
-    $.when(start()).then(function(trainers){
-        renderPokemon(trainerC);
+    start();
+
+    $('#Sasha').click(function(){
+        console.log("you clicked Sasha");
+        //renderPokemon(trainerA);
     });
+    
+    $('#Celina').click(function(){
+        console.log("you clicked Celina");
+        //renderPokemon(trainerB);
+    });
+
 
 });
 
