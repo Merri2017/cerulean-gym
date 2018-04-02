@@ -3,6 +3,9 @@ const pokeApi = "https://pokeapi.co/api/v2/pokemon/";
 const trainerOne = ["rockruff", "lillipup", "stufful"];
 const trainerTwo = ["clefairy", "ninetales", "togepi"];
 
+let trainerA;
+let trainerB;
+
 $(document).ready(function() { 
 
     // create new Pokemon object
@@ -24,7 +27,6 @@ $(document).ready(function() {
         constructor(trainerName){
             this.trainerName = trainerName;
             this.pokeDirectory = {};
-            $("#trainerName").text(trainerName);
         }
         
         // returns an array of all Pokemon
@@ -41,7 +43,6 @@ $(document).ready(function() {
         add(name) {
             let self = this;
             if(!this.pokeDirectory.hasOwnProperty(name)) {
-                $(".preloader-wrapper").addClass("active");
                 let newPokemon;
                 let apiUrl = pokeApi + name + '/';
                 let getData = (function(){
@@ -90,13 +91,15 @@ $(document).ready(function() {
 
     // creates new pokedex initialized with trainer name Sasha and adds preset Pokemon 
     function main(){
-        let trainerA = new Trainer("Sasha");
-        let trainerB = new Trainer("Meribel");
+        trainerA = new Trainer("Sasha");
+        trainerB = new Trainer("Meribel");
 
-        for (let i = 0; i < pokemonNames.length; i++){
+        for (let i = 0; i < 3; i++){
             trainerA.add(trainerOne[i]);
             trainerB.add(trainerTwo[i]);
         }
     }
+
+    main();
 });
 
