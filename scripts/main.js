@@ -91,18 +91,26 @@ $(document).ready(function() {
     // render data for all pokemon in a given trainer's pokeDirectory
     function renderPokemon(trainer) {
         let pokes = Object.keys(trainer.pokeDirectory);
-
+        let count = 1;
         for(let poke in pokes){
             let currentPoke = trainer.pokeDirectory[pokes[poke]];
-            console.log(currentPoke.name);
-            console.log(currentPoke.types);
-            console.log(currentPoke.height + "m");
-            console.log(currentPoke.weight + "kg");
-            console.log(currentPoke.abilities);
-            console.log(currentPoke.imgUrl);
+                // add character name and info to card
+            let detailsDiv = $('#pokemon' + count + '.card-content');
+            $(detailsDiv + '.cardTitle').text(currentPoke.name);
+
+            let detailsUl = document.createElement("ul");
+            $(detailsDiv + " p").append(detailsUl);
+            $(detailsUl).append("<li>types: " + currentPoke.types + "</li>");
+            $(detailsUl).append("<li>height: " + currentPoke.height + "m</li>");
+            $(detailsUl).append("<li>weight: " + currentPoke.weight + "kg</li>");
+            $(detailsUl).append("<li><p>abilities: " + currentPoke.abilities + "</p></li>");
+            let imgDiv = $('#pokemon' + count + '.card-image img');
+            $(imgDiv).attr("src", currentPoke.imgUrl);
+            $(imgDiv).attr("alt", "Picture of " + currentPoke.name);
             $.each(currentPoke.stats, function(key, value) {      
                 console.log(key, value);
             });
+            count++;
         }
     }
 
