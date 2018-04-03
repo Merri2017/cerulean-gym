@@ -1,3 +1,17 @@
+body {
+  background-color: #6BFBCE; }
 
+h1 {
+  text-align: center;
+  color: #2A52BE; }
+
+h2 {
+  color: #00084B;
+  text-align: center; }
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
 
 /*# sourceMappingURL=main.css.map */
