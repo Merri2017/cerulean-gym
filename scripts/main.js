@@ -143,11 +143,15 @@ $(document).ready(function() {
 
     // click triggers Sasha's Pokemon to display
     $('#Sasha').click(function(){
+        $('#Celina').removeClass("chosen");
+        $('#Sasha').addClass("chosen");
         renderPokemon(trainerA);
     });
     
     // click triggers Celina's Pokemon to display
     $('#Celina').click(function(){
+        $('#Sasha').removeClass("chosen");
+        $('#Celina').addClass("chosen");
         renderPokemon(trainerB);
     });
 
