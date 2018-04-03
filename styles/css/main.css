@@ -35,4 +35,9 @@ img {
   justify-content: center;
   justify-content: space-between; }
 
+.chosen {
+  border-style: solid;
+  border-width: 5px;
+  border-color: #DCF600; }
+
 /*# sourceMappingURL=main.css.map */

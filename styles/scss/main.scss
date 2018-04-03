@@ -8,6 +8,7 @@ $main-header-color: #2A52BE;
 $background-color:#6BFBCE;
 $text-color:#00084B;
 $accent-color:#00CBE4;
+$chosen-color:#DCF600;
 // $card-color:#90caf9;
 
 body{
@@ -50,9 +51,14 @@ img{
 .pokemon-container{
 	display: flex;
   	align-items: center;
-  	justify-content: center ;
+  	justify-content: center;
   	justify-content:space-between;
   	// padding:25px #90caf9 blue lighten-3
   	 // @extend .blue, .lighten-3;
 }
 
+.chosen{
+	border-style: solid;
+	border-width: 5px;
+	border-color: $chosen-color;
+}
