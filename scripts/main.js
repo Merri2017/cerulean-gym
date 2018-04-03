@@ -6,10 +6,6 @@ let trainers = [];
 let trainerA;
 let trainerB;
 
-let trainerC;
-
-
-
 $(document).ready(function() { 
 
     // create new Pokemon object
@@ -90,31 +86,24 @@ $(document).ready(function() {
         }
     }
 
-    trainerC = new Trainer("Test");
-    testPokemon = new Pokemon("Tester",["type"], 1, 2, "www.test.com", {"statOne": "testStat"}, ["abilityOne", "abilityTwo"]);
-    trainerC.pokeDirectory["Test"] = testPokemon;
-    
     function renderPokemon(trainer) {
-        let pokes = Object.values(trainer.pokeDirectory);
-        console.log(pokes);
-
+        let pokes = Object.keys(trainer.pokeDirectory);
         for(let poke in pokes){
-            //console.log(trainer.pokeDirectory[poke].name);
-            //console.log(poke.types);
-            console.log(Object.keys(trainer.pokeDirectory));
-        
-            //console.log(poke.weight);
-            //console.log(poke.abilities);
-            //console.log(imgUrl);
-            //console.log(stats);
+            let currentPoke = trainer.pokeDirectory[pokes[poke]];
+            console.log(currentPoke.name);
+            console.log(currentPoke.types);
+            console.log(currentPoke.height);
+            console.log(currentPoke.weight);
+            console.log(currentPoke.abilities);
+            console.log(currentPoke.imgUrl);
+            console.log(currentPoke.stats);
         }
     }
 
     // creates new pokedex initialized with trainer name Sasha and adds preset Pokemon 
     function start(){
-        console.log("I'm in main!");
         trainerA = new Trainer("Sasha");
-        trainerB = new Trainer("Celine");
+        trainerB = new Trainer("Celina");
 
         for (let i = 0; i < 3; i++){
             trainerA.add(trainerOne[i]);
@@ -127,13 +116,11 @@ $(document).ready(function() {
     start();
 
     $('#Sasha').click(function(){
-        console.log("you clicked Sasha");
-        //renderPokemon(trainerA);
+        renderPokemon(trainerA);
     });
     
     $('#Celina').click(function(){
-        console.log("you clicked Celina");
-        //renderPokemon(trainerB);
+        renderPokemon(trainerB);
     });
 
 
