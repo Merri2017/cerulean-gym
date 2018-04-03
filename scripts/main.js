@@ -93,22 +93,35 @@ $(document).ready(function() {
     function renderPokemon(trainer) {
         let pokes = Object.keys(trainer.pokeDirectory);
         let count = 1;
+        let tabCount = 1;
         for(let poke in pokes){
             let currentPoke = trainer.pokeDirectory[pokes[poke]];
-                // add character name and info to card
+                // add character name and image to card
             $("#title" + count).text(currentPoke.name);
-
-            let detailsUl = document.createElement("ul");
-            $("#p" + count).append(detailsUl);
-            $(detailsUl).append("<li>types: " + currentPoke.types + "</li>");
-            $(detailsUl).append("<li>height: " + currentPoke.height + "m</li>");
-            $(detailsUl).append("<li>weight: " + currentPoke.weight + "kg</li>");
-            $(detailsUl).append("<li><p>abilities: " + currentPoke.abilities + "</p></li>");
             $("#img" + count).attr("src", currentPoke.imgUrl);
             $("#img" + count).attr("alt", "Picture of " + currentPoke.name);
+
+            $("#tab" + tabCount).text("");
+            let detailsUl1 = document.createElement("ul");
+            $("#tab" + tabCount).append(detailsUl1);
             $.each(currentPoke.stats, function(key, value) {      
-                $(detailsUl).append("<li>" + key + ": " + value + "</li>");
+                $(detailsUl1).append("<li>" + key + ": <meter min='0' max='100' low='25' high='75' optimum='50' value='" + value + "'></meter></li>");
             });
+            tabCount++;
+            $("#tab" + tabCount).text("");
+            let detailsUl2 = document.createElement("ul");
+            $("#tab" + tabCount).append(detailsUl2);
+            for(let i = 0; i < currentPoke.abilities.length; i++){
+                $(detailsUl2).append("<li>" + currentPoke.abilities[i] + "</li>");
+            }
+            tabCount++;
+            $("#tab" + tabCount).text("");
+            let detailsUl3 = document.createElement("ul");
+            $("#tab" + tabCount).append(detailsUl3);
+            $(detailsUl3).append("<li>types: " + currentPoke.types + "</li>");
+            $(detailsUl3).append("<li>height: " + currentPoke.height + "m</li>");
+            $(detailsUl3).append("<li>weight: " + currentPoke.weight + "kg</li>");
+            tabCount++;
             count++;
         }
     }
