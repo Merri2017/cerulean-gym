@@ -8,6 +8,7 @@ $main-header-color: #2A52BE;
 $background-color:#6BFBCE;
 $text-color:#00084B;
 $accent-color:#00CBE4;
+// $card-color:#90caf9;
 
 body{
 	background-color: $background-color;
@@ -16,11 +17,17 @@ body{
 h1{
 	text-align: center;
 	color: $main-header-color;
+	border-style: double;
+	border-color: $accent-color;
+	border-width: 5px;
+	text-shadow: 2px 2px $main-header-color;
+	letter-spacing: 5px;
 }
 
 h2 {
 	color: $text-color;
 	text-align: center;
+	letter-spacing:2px;
 }
 
 .container{
@@ -35,7 +42,17 @@ img{
 	height:400px;
 	width:350px; 
 	margin-top: 60px;
+	border-radius: 20%;
 }
 .card{
 	width: 300px;
 }
+.pokemon-container{
+	display: flex;
+  	align-items: center;
+  	justify-content: center ;
+  	justify-content:space-between;
+  	// padding:25px #90caf9 blue lighten-3
+  	 // @extend .blue, .lighten-3;
+}
+
