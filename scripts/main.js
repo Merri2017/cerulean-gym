@@ -1,5 +1,4 @@
 const pokeApi = "https://pokeapi.co/api/v2/pokemon/";
-//const pokeApi = "https://pokeapi.salestock.net/api/v2/pokemon/";
 const trainerOne = ["rockruff", "lillipup", "stufful"];
 const trainerTwo = ["clefairy", "ninetales", "togepi"];
 let trainers = [];
@@ -8,8 +7,9 @@ let trainerB;
 
 $(document).ready(function() { 
 
-    // create new Pokemon object
+    // create Pokemon object
     class Pokemon {
+
         constructor(name, types, height, weight, imgUrl, stats, abilities) {
             this.name = name;
             this.types = types;
@@ -39,12 +39,14 @@ $(document).ready(function() {
             return this.pokeDirectory[pokemon];
         }
 
-        // add new Pokemon to pokeDirectory and display them on screen
+        // add new Pokemon to pokeDirectory
         add(name) {
             let self = this;
             if(!this.pokeDirectory.hasOwnProperty(name)) {
                 let newPokemon;
                 let apiUrl = pokeApi + name + '/';
+                
+                // make ajax call to get Pokemon data
                 let getData = (function(){
                     return $.ajax({
                         type: 'GET',
@@ -59,7 +61,7 @@ $(document).ready(function() {
                     });
                 });
 
-                // gets ajax data, then uses it to create new Pokemon
+                // use ajax data to create new Pokemon
                 getData().then(function (data){
                     let pokemonName = data.name;
                     let height = data.height;
@@ -86,22 +88,27 @@ $(document).ready(function() {
         }
     }
 
+    // render data for all pokemon in a given trainer's pokeDirectory
     function renderPokemon(trainer) {
         let pokes = Object.keys(trainer.pokeDirectory);
+
         for(let poke in pokes){
             let currentPoke = trainer.pokeDirectory[pokes[poke]];
             console.log(currentPoke.name);
             console.log(currentPoke.types);
-            console.log(currentPoke.height);
-            console.log(currentPoke.weight);
+            console.log(currentPoke.height + "m");
+            console.log(currentPoke.weight + "kg");
             console.log(currentPoke.abilities);
             console.log(currentPoke.imgUrl);
-            console.log(currentPoke.stats);
+            $.each(currentPoke.stats, function(key, value) {      
+                console.log(key, value);
+            });
         }
     }
 
-    // creates new pokedex initialized with trainer name Sasha and adds preset Pokemon 
-    function start(){
+    // create new pokedex initialized with trainers named Sasha and Celina
+    // with preset Pokemon added to each trainer 
+    (function start(){
         trainerA = new Trainer("Sasha");
         trainerB = new Trainer("Celina");
 
@@ -112,13 +119,14 @@ $(document).ready(function() {
         trainers.push(trainerA);
         trainers.push(trainerB);
         return trainers;
-    }
-    start();
+    })();
 
+    // click triggers Sasha's Pokemon to display
     $('#Sasha').click(function(){
         renderPokemon(trainerA);
     });
     
+    // click triggers Celina's Pokemon to display
     $('#Celina').click(function(){
         renderPokemon(trainerB);
     });
