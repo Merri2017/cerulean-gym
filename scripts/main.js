@@ -6,6 +6,7 @@ let trainerA;
 let trainerB;
 
 $(document).ready(function() { 
+    $('.tabs').tabs();
 
     // create Pokemon object
     class Pokemon {
