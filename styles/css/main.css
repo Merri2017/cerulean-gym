@@ -3,11 +3,17 @@ body {
 
 h1 {
   text-align: center;
-  color: #2A52BE; }
+  color: #2A52BE;
+  border-style: double;
+  border-color: #00CBE4;
+  border-width: 5px;
+  text-shadow: 2px 2px #2A52BE;
+  letter-spacing: 5px; }
 
 h2 {
   color: #00084B;
-  text-align: center; }
+  text-align: center;
+  letter-spacing: 2px; }
 
 .container {
   display: flex;
@@ -21,5 +27,14 @@ img {
 
 .card {
   width: 300px; }
+
+.pokemon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between; }
+
+img {
+  border-radius: 20%; }
 
 /*# sourceMappingURL=main.css.map */

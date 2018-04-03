@@ -16,11 +16,17 @@ body{
 h1{
 	text-align: center;
 	color: $main-header-color;
+	border-style: double;
+	border-color: $accent-color;
+	border-width: 5px;
+	text-shadow: 2px 2px $main-header-color;
+	letter-spacing: 5px;
 }
 
 h2 {
 	color: $text-color;
 	text-align: center;
+	letter-spacing:2px;
 }
 
 .container{
@@ -38,4 +44,15 @@ img{
 }
 .card{
 	width: 300px;
+}
+.pokemon-container{
+	display: flex;
+  	align-items: center;
+  	justify-content: center ;
+  	justify-content:space-between;
+  	// padding:25px
+}
+
+img{
+	border-radius: 20%;
 }
