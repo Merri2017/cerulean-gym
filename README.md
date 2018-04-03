@@ -25,4 +25,4 @@ Pokemon trainers created using Pokemon Trainer Creator https://jcling.deviantart
 
 # License
 
-MIT &copy; ddanskin
+MIT &copy; ddanskin and Merri2017
