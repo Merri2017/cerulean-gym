@@ -103,10 +103,10 @@ $(document).ready(function() {
             $(detailsUl).append("<li>height: " + currentPoke.height + "m</li>");
             $(detailsUl).append("<li>weight: " + currentPoke.weight + "kg</li>");
             $(detailsUl).append("<li><p>abilities: " + currentPoke.abilities + "</p></li>");
-            $("img" + count).attr("src", currentPoke.imgUrl);
-            $("img" + count).attr("alt", "Picture of " + currentPoke.name);
+            $("#img" + count).attr("src", currentPoke.imgUrl);
+            $("#img" + count).attr("alt", "Picture of " + currentPoke.name);
             $.each(currentPoke.stats, function(key, value) {      
-                console.log(key, value);
+                $(detailsUl).append("<li>" + key + ": " + value + "</li>");
             });
             count++;
         }
