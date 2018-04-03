@@ -96,20 +96,18 @@ $(document).ready(function() {
         for(let poke in pokes){
             let currentPoke = trainer.pokeDirectory[pokes[poke]];
                 // add character name and info to card
-            let detailsDiv = $('#pokemon' + count + '.card-content');
-            $(detailsDiv + '.cardTitle').text(currentPoke.name);
+            $("#title" + count).text(currentPoke.name);
 
             let detailsUl = document.createElement("ul");
-            $(detailsDiv + " p").append(detailsUl);
+            $("#p" + count).append(detailsUl);
             $(detailsUl).append("<li>types: " + currentPoke.types + "</li>");
             $(detailsUl).append("<li>height: " + currentPoke.height + "m</li>");
             $(detailsUl).append("<li>weight: " + currentPoke.weight + "kg</li>");
             $(detailsUl).append("<li><p>abilities: " + currentPoke.abilities + "</p></li>");
-            let imgDiv = $('#pokemon' + count + '.card-image img');
-            $(imgDiv).attr("src", currentPoke.imgUrl);
-            $(imgDiv).attr("alt", "Picture of " + currentPoke.name);
+            $("#img" + count).attr("src", currentPoke.imgUrl);
+            $("#img" + count).attr("alt", "Picture of " + currentPoke.name);
             $.each(currentPoke.stats, function(key, value) {      
-                console.log(key, value);
+                $(detailsUl).append("<li>" + key + ": " + value + "</li>");
             });
             count++;
         }
