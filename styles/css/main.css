@@ -23,7 +23,8 @@ h2 {
 img {
   height: 400px;
   width: 350px;
-  margin-top: 60px; }
+  margin-top: 60px;
+  border-radius: 20%; }
 
 .card {
   width: 300px; }
@@ -33,8 +34,5 @@ img {
   align-items: center;
   justify-content: center;
   justify-content: space-between; }
-
-img {
-  border-radius: 20%; }
 
 /*# sourceMappingURL=main.css.map */
